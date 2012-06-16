@@ -10,10 +10,19 @@ License URI: license.txt
 Tags: light, two-columns, right-sidebar, flexible-width, featured-images, post-formats, sticky-post, theme-options
 */
 
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+h1 {
+    font-size: 25px;
+    line-height: 30px;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.no-hover:link, .no-hover:visited, .no-hover:active {
+    color: #333333;
+}
+

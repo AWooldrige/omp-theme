@@ -11,22 +11,47 @@
 ?>
 
 
-    <?php if ( is_sticky() ) : ?>
+                <?php if ( have_posts() ) :
 
+                //Counter for non-sticky posts
+                $i = 1;
+                while ( have_posts() ) : the_post();
+                    if ( is_sticky() ) {
+                        get_template_part(
+                            'front-page-hero-unit',
+                            get_post_format()
+                        );
+                    }
+                    else {
+                        if($i === 1) :
+                        ?>
 
-    <div id="post-<?php the_ID(); ?>" class="hero-unit">
-        <h1><?php the_title(); ?></h1>
-        <p><?php the_content(); ?></p>
-        <p><a class="btn btn-primary btn-large" href="View Recipe" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyeleven' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">Get Recipe  &raquo;</a></p>
-    </div>
+                <!-- Row of 3 recipe highlights -->
+                <div class="row">
+                        <?php
+                        endif;
 
-    <div class="row">
-    <?php else : ?>
+                        get_template_part(
+                            'front-page-recipe',
+                            get_post_format()
+                        );
 
-        <div class="span4">
-            <h2><?php the_title(); ?></h2>
-            <p><?php the_content(); ?></p>
-            <p><a class="btn" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyeleven' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">Get Recipe  &raquo;</a></p>
-        </div><!--/span-->
+                        if(($i % 3) === 0) :
+                        ?>
+                </div><!-- /Row of 3 recipe highlights -->
 
-    <?php endif; ?>
+                <!-- Row of 3 recipe highlights -->
+                <div class="row">
+                        <?php
+                        endif;
+                        $i++;
+                    }
+
+                endwhile; ?>
+                </div><!-- /Row of 3 recipe highlights -->
+
+                <?php else : ?>
+
+                <h1 class="No posts found"></h1>
+
+                <?php endif; ?>

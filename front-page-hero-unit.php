@@ -13,7 +13,10 @@
 
                     <!-- Featured recipe highlight -->
                     <div id="post-<?php the_ID(); ?>" class="hero-unit">
-                        <h1><?php the_title(); ?></h1>
+                        <h1><a class="no-hover"
+                               href="<?php the_permalink(); ?>"
+                               title="<?php printf('Permalink to %s', the_title_attribute( 'echo=0' ) ); ?>"
+                               rel="bookmark"><?php the_title(); ?></a></h1>
                         <p><?php the_content(); ?></p>
                         <p><a class="btn btn-primary btn-large"
                               href="<?php the_permalink(); ?>"
