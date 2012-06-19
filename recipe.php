@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for a recipe highlight (WordPress more text)
+ * Template for an individual recipe page.
  *
  * @package OMP
  * @subpackage Theme
@@ -10,17 +10,16 @@
  */
 ?>
 
-                    <!-- Recipe highlight -->
-                    <div class="span4">
-                        <h2><a class="no-hover"
-                               href="<?php the_permalink(); ?>"
-                               title="<?php printf('Permalink to %s', the_title_attribute( 'echo=0' ) ); ?>"
-                               rel="bookmark"><?php the_title(); ?></a></h2>
-                        <p><?php the_content(); ?></p>
-                        <p><a class="btn"
-                              href="<?php the_permalink(); ?>"
-                              title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyeleven' ), the_title_attribute( 'echo=0' ) ); ?>"
-                              rel="bookmark">Get Recipe  &raquo;</a></p>
-                    </div>
-                    <!--/Recipe highlight-->
+        <!-- Recipe -->
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <header class="entry-header">
+                <h1 class="entry-title"><?php the_title(); ?></h1>
+            </header><!-- .entry-header -->
 
+            <div class="entry-content">
+                <?php the_content(); ?>
+                <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
+            </div><!-- .entry-content -->
+
+        </article><!-- #post-<?php the_ID(); ?> -->
+        <!--/Recipe -->
