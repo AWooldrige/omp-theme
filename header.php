@@ -48,6 +48,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
+    <!-- Google web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -64,7 +66,7 @@
 
 <body <?php //body_class(); ?>>
 
-<div class="navbar navbar-fixed-top">
+<div class="navbar">
     <div class="navbar-inner">
         <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -75,22 +77,20 @@
             <a class="brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <?php bloginfo( 'name' ); ?>
             </a>
-            <div class="btn-group pull-right">
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="icon-user"></i> Username
-
-                    <span class="caret"></span>
-                </a>
-            </div>
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </div>
             <!--/.nav-collapse -->
-            <?php //get_search_form(); ?>
+            </div>
+            <div class="nav-collapse">
+                <form class="navbar-search pull-right">
+                    <input type="text" class="search-query" placeholder="Search">
+                </form>
+            <!--/.nav-collapse -->
+            </div>
         </div>
     </div>
 </div>

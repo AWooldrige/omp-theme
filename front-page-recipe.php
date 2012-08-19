@@ -16,6 +16,25 @@
                                href="<?php the_permalink(); ?>"
                                title="<?php printf('Permalink to %s', the_title_attribute( 'echo=0' ) ); ?>"
                                rel="bookmark"><?php the_title(); ?></a></h2>
+
+<?php
+    if (has_post_thumbnail( $post->ID )) :
+
+        $attachmentId = get_post_thumbnail_id($post->ID);
+
+        $thumbUrl = OMP_Wordpress_DynamicResize::getResizedImageFromId(
+            $attachmentId,
+            150,
+            null
+        );
+?>
+
+                            <img src="<?php echo $thumbUrl; ?>" />
+
+<?php
+    endif;
+?>
+
                         <p><?php the_content(); ?></p>
                         <p><a class="btn"
                               href="<?php the_permalink(); ?>"
