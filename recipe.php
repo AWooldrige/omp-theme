@@ -34,7 +34,7 @@
         $featuredImageId = get_post_thumbnail_id($post->ID);
         $featuredImage = OMP_Wordpress_DynamicResize::getResizedImageFromId(
             $featuredImageId,
-            620,
+            770,
             null
         );
         $featuredImage['alt'] = get_post_meta(
@@ -45,9 +45,7 @@
 
 ?>
                 <img src="<?php echo $featuredImage['url']; ?>" 
-                     alt="<?php echo $featuredImage['alt']; ?>"
-                     width="<?php echo $featuredImage['width']; ?>"
-                     height ="<?php echo $featuredImage['height']; ?>"/>
+                     alt="<?php echo $featuredImage['alt']; ?>"/>
 <?php
     endif;
 ?>
