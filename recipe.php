@@ -58,9 +58,7 @@
                 <?php echo $post->post_content_filtered; ?>
                 </div>
 
-        <div class="row">
                 <?php echo ompThemeMeta($post->recipe_data['Meta']); ?>
-        </div>
                 <h2>Method</h2>
 <?php
     echo ompThemeMethodList($post->recipe_data['Method']);
