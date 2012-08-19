@@ -120,14 +120,32 @@ function ompThemeMeta($meta) {
     foreach($meta as $key => $val) {
         $icon = '';
         switch($key) {
-            case 'active_time': $icon = 'icon-time'; break;
-            case 'inactive_time': $icon = 'icon-time'; break;
-            case 'difficulty': $icon = 'icon-signal'; break;
-            case 'rating': $icon = 'icon-star'; break;
-            case 'cost': $icon = 'icon-shopping-cart'; break;
-            case 'serves': $icon = 'icon-user'; break;
+            case 'active_time':
+                $title = 'Active Time';
+                $icon = 'icon-time';
+                break;
+            case 'inactive_time':
+                $title = 'Inactive Time';
+                $icon = 'icon-time';
+                break;
+            case 'difficulty':
+                $title = 'Difficulty';
+                $icon = 'icon-signal';
+                break;
+            case 'rating':
+                $title = 'Our Rating';
+                $icon = 'icon-star';
+                break;
+            case 'cost':
+                $title = 'Cost per Serving';
+                $icon = 'icon-shopping-cart';
+                break;
+            case 'serves':
+                $title = 'Serves';
+                $icon = 'icon-user';
+                break;
         }
-        $iLine = '    <div class="span2"><i class="' . $icon . '"></i>' . $key .
+        $iLine = '    <div class="span2"><i class="' . $icon . '"></i> ' . $title .
                  ': ' . $val . "</div>\n";
         $line .= $iLine;
     }

@@ -16,7 +16,7 @@ body {
     font-size: 19px;
     line-height: 10px;
     color: #444;
-    background-color: #E8E8E8;
+    background-color: #EEEEEE;
 }
 body, li {
     line-height: 25px;
@@ -33,14 +33,18 @@ body, li {
 header h1 {
     font-size: 45px;
     margin: 20px 0 30px 0;
+    line-height: 45px;
 }
 
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-    color: #000;
+    color: #2C2C2C;
 }
 
+.omp-ingredients-list {
+    margin: 0 0 0 0;
+}
 .omp-ingredients-list dt {
     font-weight: normal;
 }
@@ -52,10 +56,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .recipe-body h2 {
     font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 /* Summary below the image on a recipe page */
 .omp-recipe-summary, .omp-recipe-meta {
     font-size: 16px;
-    color: #777;
+    color: #2C2C2C;
 }

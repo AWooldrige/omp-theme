@@ -52,13 +52,12 @@
     endif;
 ?>
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <article id="post-<?php the_ID(); ?>" class="recipe-left">
 
                 <div class="omp-recipe-summary">
                 <?php echo $post->post_content_filtered; ?>
                 </div>
 
-                <?php echo ompThemeMeta($post->recipe_data['Meta']); ?>
                 <h2>Method</h2>
 <?php
     echo ompThemeMethodList($post->recipe_data['Method']);
@@ -70,6 +69,11 @@
         echo '<h2>Tips</h2>';
         echo ompThemeList($post->recipe_data['Tips']);
     }
+
+    if($post->recipe_data['Meta'] !== NULL) {
+        echo '<h2>Information</h2>';
+        echo ompThemeMeta($post->recipe_data['Meta']);
+    }
 ?>
 
             <!-- #post-<?php the_ID(); ?> -->
@@ -79,15 +83,15 @@
 
         <div class="span4 omp-recipe-sidebar">
 
-            <h2>Ingredients</h2>
 <?php
     ksort($post->recipe_data['Ingredients']);
     if (isset($post->recipe_data['Ingredients']['_'])) {
+        echo '<h2>Main Ingredients</h2>';
         echo ompThemeIngredientsListDescription($post->recipe_data['Ingredients']['_']);
         unset($post->recipe_data['Ingredients']['_']);
     }
     foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
-        echo '<h3>' . $component . '</h2>';
+        echo '<h2>' . $component . ' Ingredients</h2>';
         echo ompThemeIngredientsListDescription($ingredients);
     }
 ?>
