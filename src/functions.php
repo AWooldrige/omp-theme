@@ -168,6 +168,8 @@ function ompThemeMeta($meta) {
  */
 function ompThemeList(array $data, $type = 'ul', $class = NULL) {
 
+    if((count($data) === 1) || ($data === Null)) return null;
+
     $line = '<' . $type;
     if ($class !== NULL) {
         $line .= ' class="' . $class . '"';
@@ -182,7 +184,7 @@ function ompThemeList(array $data, $type = 'ul', $class = NULL) {
         $line .= $iLine;
     }
     $line .= '<!-- /' . $class . ' -->';
-    $line .= "\n</' . $type . '>\n";
+    $line .= "\n</" . $type . ">\n";
 
     return $line;
 }
