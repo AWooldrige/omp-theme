@@ -84,12 +84,12 @@
 <?php
     ksort($post->recipe_data['Ingredients']);
     if (isset($post->recipe_data['Ingredients']['_'])) {
-        echo '<h2>Main Ingredients</h2>';
+        echo '<h3>Main Ingredients</h3>';
         echo ompThemeIngredientsListDescription($post->recipe_data['Ingredients']['_']);
         unset($post->recipe_data['Ingredients']['_']);
     }
     foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
-        echo '<h2>' . $component . ' Ingredients</h2>';
+        echo '<h3>' . $component . ' Ingredients</h3>';
         echo ompThemeIngredientsListDescription($ingredients);
     }
 ?>
