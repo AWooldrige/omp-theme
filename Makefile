@@ -10,7 +10,7 @@ install: distclean build
 	cp -R $(BUILDDIR) $(DESTDIR)
 	chown -R www-data:www-data $(DESTDIR)$(ARCHIVE)
 
-devinstall: devclean build
+devinstall: build devclean
 	cp -R $(BUILDDIR) $(DESTDIR)$(ARCHIVE)-dev/
 	chown -R www-data:www-data $(DESTDIR)$(ARCHIVE)-dev
 
