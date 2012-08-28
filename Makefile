@@ -6,20 +6,33 @@ ARCHIVE = $(PACKAGE)-$(VERSION)
 BUILDDIR = ./BUILD/$(ARCHIVE)/
 DESTDIR = /var/www/onmyplate-co-uk/wp-content/themes/
 
-install: distclean build
+all: build
+
+##############################################################################
+# INSTALL TO DESTDIR AS IF FINAL PRODUCT - This may require sudo
+##############################################################################
+install:
 	cp -R $(BUILDDIR) $(DESTDIR)
 	chown -R www-data:www-data $(DESTDIR)$(ARCHIVE)
-
-devinstall: build devclean
-	cp -R $(BUILDDIR) $(DESTDIR)$(ARCHIVE)-dev/
-	chown -R www-data:www-data $(DESTDIR)$(ARCHIVE)-dev
 
 distclean:
 	rm -rf $(DESTDIR)$(ARCHIVE)
 
+
+##############################################################################
+# INSTALL TO DESTDIR WITH -dev PREPENDED - This may require sudo
+##############################################################################
+devinstall:
+	cp -R $(BUILDDIR) $(DESTDIR)$(ARCHIVE)-dev/
+	chown -R www-data:www-data $(DESTDIR)$(ARCHIVE)-dev
+
 devclean:
 	rm -rf $(DESTDIR)$(ARCHIVE)-dev
 
+
+##############################################################################
+# BUILDING OF THE THEME
+##############################################################################
 # Build should build the theme into BUILD asif BUILD was the root of the theme
 build: clean prep
 	unzip bootstrap.zip -d $(BUILDDIR)
