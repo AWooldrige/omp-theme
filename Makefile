@@ -1,6 +1,5 @@
 PACKAGE = omp-theme
 VERSION = 0.1.0
-RELEASE = 1
 
 ARCHIVE = $(PACKAGE)-$(VERSION)
 BUILDDIR = ./BUILD/$(ARCHIVE)/
@@ -44,9 +43,10 @@ build: clean prep
 	rm $(BUILDDIR)style.css.out
 	# Replace {{VERSION}} with the version of the build in all files
 	find $(BUILDDIR) -type f | xargs perl -pi -e 's/{{VERSION}}/$(VERSION)/g'
+	find $(BUILDDIR) -type f | xargs perl -pi -e 's/{{ARCHIVE}}/$(ARCHIVE)/g'
 
 dist: build
-	tar -zvcf ./SOURCES/$(ARCHIVE)-$(RELEASE).tar.gz -C ./BUILD/ .
+	tar -zvcf ./SOURCES/$(ARCHIVE).tgz -C ./BUILD/ .
 
 clean:
 	rm -rf BUILD SOURCES
