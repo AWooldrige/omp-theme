@@ -37,15 +37,10 @@
             770,
             null
         );
-        $featuredImage['alt'] = get_post_meta(
-            $featuredImageId,
-            '_wp_attachment_image_alt',
-            true
-        );
 
 ?>
-                <img src="<?php echo $featuredImage['url']; ?>" 
-                     alt="<?php echo $featuredImage['alt']; ?>"/>
+                <img src="<?php echo $featuredImage['url']; ?>"
+                     alt="<?php echo $featuredImage['alt']; ?>" />
 <?php
     endif;
 ?>
