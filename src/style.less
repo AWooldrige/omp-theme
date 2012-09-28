@@ -1,17 +1,17 @@
+@fontsize-base: 19px;
 @fontcolour-body: #44444;
 @fontcolour-headings: #2C2C2C;
+@background-colour: #F5F5F5;
 
 
 body {
-    padding-bottom: 40px;
     font-family: 'Average', 'Georgia', serif;
-    font-size: 19px;
-    line-height: 10px;
+    font-size: @fontsize-base;
     color: @fontcolour-body;
-    background-color: #F5F5F5;
+    background-color: @background-colour;
 }
 body, li {
-    line-height: 25px;
+    line-height: @fontsize-base * 1.2;
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
@@ -33,19 +33,22 @@ header {
     }
 }
 
-.omp-ingredients-list {
-    margin: 0 0 0 0;
-
+/* Styles for the sidebar on a recipe page */
+.omp-recipe-sidebar {
+    h3 {
+        margin: 0 0 0 0;
+    }
+    dl {
+        margin: 0 0 30px 0;
+    }
     dt {
         font-weight: normal;
     }
-
     dd {
         color: #777;
-        font-size: 14px;
+        font-size: round(@fontsize-base * 0.8);
     }
 }
-
 
 .recipe-body h2 {
     font-size: 30px;
@@ -59,9 +62,3 @@ header {
     color: @fontcolour-headings;
 }
 
-/* Styles for the sidebar on a recipe page */
-.omp-recipe-sidebar {
-    h3 {
-        margin-top: 0px;
-    }
-}

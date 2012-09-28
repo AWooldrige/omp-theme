@@ -37,7 +37,7 @@ build: clean prep
 	unzip bootstrap.zip -d $(BUILDDIR)
 	cp src/*.php $(BUILDDIR)
 	# Compile the LESS CSS and YUI Compress
-	lessc ./src/style.less $(BUILDDIR)style.css.out --yui-compress --silent
+	lessc ./src/style.less $(BUILDDIR)style.css.out --yui-compress
 	# Append the metadata that WordPress expects to style.css
 	cat ./src/wordpress.thememeta $(BUILDDIR)style.css.out > $(BUILDDIR)style.css
 	rm $(BUILDDIR)style.css.out
