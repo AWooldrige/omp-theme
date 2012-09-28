@@ -175,7 +175,7 @@ function ompThemeList(array $data, $type = 'ul', $class = NULL) {
         $line .= ' class="' . $class . '"';
     }
     $line .= ">\n";
-    foreach($method as $m) {
+    foreach($data as $m) {
         $iLine = '    <li>' . $m['item'];
         if ($m['subitems'] !== NULL) {
             $iLine .= ompThemeMethodList($m['subitems']);
