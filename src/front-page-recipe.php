@@ -22,14 +22,15 @@
 
         $attachmentId = get_post_thumbnail_id($post->ID);
 
-        $thumbUrl = OMP_Wordpress_DynamicResize::getResizedImageFromId(
+        $thumb = OMP_Wordpress_DynamicResize::getResizedImageFromId(
             $attachmentId,
             150,
-            null
+            150
         );
 ?>
 
-                            <img src="<?php echo $thumbUrl; ?>" />
+                            <img src="<?php echo $thumb['url']; ?>"
+                                 alt="<?php echo $thumb['alt']; ?>" />
 
 <?php
     endif;
