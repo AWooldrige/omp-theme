@@ -83,8 +83,15 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <form class="navbar-search pull-right">
-                    <input type="text" class="search-query" placeholder="Search">
+                <form class="navbar-search pull-right"
+                    role="search"
+                    method="get"
+                    action="<?php echo esc_url(home_url('/')); ?>">
+                    <input type="text"
+                        class="search-query"
+                        name="s"
+                        id="s"
+                        placeholder="Search">
                 </form>
             <!--/.nav-collapse -->
             </div>
