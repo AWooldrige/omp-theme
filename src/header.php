@@ -9,7 +9,6 @@
  * @subpackage Theme
  * @copyright 1997-2012 Alistair Wooldrige
  * @author Alistair Wooldrige <alistair@wooldrige.co.uk> 
- * @license Apache License, Version 2.0 {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -45,8 +44,8 @@
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
     <!-- Google web fonts -->
     <link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
@@ -82,6 +81,7 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <?php wp_list_pages('title_li='); ?>
                 </ul>
                 <form class="navbar-search pull-right"
                       role="search"
