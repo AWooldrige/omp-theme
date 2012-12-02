@@ -8,8 +8,6 @@ add_theme_support('post-thumbnails');
 add_image_size('omp-recipe-peepbox', 370, 170, true);
 add_image_size('omp-recipe-featured-image', 770, 999999);
 
-add_filter( 'jpeg_quality', 'jpeg_full_quality' );
-function jpeg_full_quality( $quality ) { return 70; }
 
 /**
  * WordPress adds absolute width and height parameters to post thumbnails.
@@ -28,6 +26,18 @@ function remove_thumbnail_dimensions($html) {
 }
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+
+/**
+ * The default jpeg quality within WordPress is 90, which is a bit high.
+ *
+ * @param int $quality jpeg quality
+ * @access public
+ * @return int new jpeg quality
+ */
+function jpeg_resize_quality($quality){
+    return 70;
+}
+add_filter('jpeg_quality', 'jpeg_resize_quality');
 
 /**
  * Return a formatted ingredients unordered list
