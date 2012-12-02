@@ -1,6 +1,7 @@
 @fontsize-base: 19px;
 @fontcolour-body: #44444;
 @fontcolour-headings: #2C2C2C;
+@fontcolour-subtle: #777777;
 @background-colour: #F5F5F5;
 
 
@@ -48,7 +49,7 @@ header {
         font-weight: normal;
     }
     dd {
-        color: #777;
+        color: @fontcolour-subtle;
         font-size: round(@fontsize-base * 0.8);
     }
 }
@@ -59,9 +60,15 @@ header {
     margin-bottom: 10px;
 }
 
-/* Summary below the image on a recipe page */
-.omp-recipe-summary, .omp-recipe-meta {
-    font-size: 16px;
-    color: @fontcolour-headings;
+.omp-recipe-peepbox {
+    .title {
+        color: @fontcolour-headings;
+        line-height: 30px;
+        margin: 10px 0px 5px 0px;
+    }
+    .description {
+        font-size: round(@fontsize-base * 0.8);
+        color: @fontcolour-subtle;
+    }
 }
 

@@ -5,7 +5,29 @@
  * thumbnails is provided in the admin interface
  */
 add_theme_support('post-thumbnails');
+add_image_size('omp-recipe-peepbox', 370, 170, true);
+add_image_size('omp-recipe-featured-image', 770, 999999);
 
+add_filter( 'jpeg_quality', 'jpeg_full_quality' );
+function jpeg_full_quality( $quality ) { return 70; }
+
+/**
+ * WordPress adds absolute width and height parameters to post thumbnails.
+ * Although hacky, this filter strips this on the way out.
+ *
+ * Source:
+ * http://wordpress.stackexchange.com/questions/5568/filter-to-remove-image-dimension-attributes
+ *
+ * @param post thumbnail html $html
+ * @access public
+ * @return string filtered html without width or height
+ */
+function remove_thumbnail_dimensions($html) {
+    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
 
 /**
  * Return a formatted ingredients unordered list

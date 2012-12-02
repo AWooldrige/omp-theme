@@ -44,9 +44,9 @@
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-    <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-    <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <!-- Google web fonts -->
     <link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
@@ -84,14 +84,10 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <form class="navbar-search pull-right"
-                    role="search"
-                    method="get"
-                    action="<?php echo esc_url(home_url('/')); ?>">
-                    <input type="text"
-                        class="search-query"
-                        name="s"
-                        id="s"
-                        placeholder="Search">
+                      role="search"
+                      method="get"
+                      action="<?php echo esc_url(home_url('/')); ?>">
+                    <input type="text" class="search-query" name="s" id="s" placeholder="Search">
                 </form>
             <!--/.nav-collapse -->
             </div>

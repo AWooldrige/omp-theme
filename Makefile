@@ -34,8 +34,9 @@ devclean:
 ##############################################################################
 # Build should build the theme into BUILD asif BUILD was the root of the theme
 build: clean prep
-	unzip bootstrap.zip -d $(BUILDDIR)
+	unzip bootstrap/bootstrap-2.2.1.zip -d $(BUILDDIR)
 	cp src/*.php $(BUILDDIR)
+	cp -R jquery $(BUILDDIR)
 	# Compile the LESS CSS and YUI Compress
 	lessc ./src/style.less $(BUILDDIR)style.css.out --yui-compress
 	# Append the metadata that WordPress expects to style.css

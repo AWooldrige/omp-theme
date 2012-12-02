@@ -31,16 +31,9 @@
 <?php
     if (has_post_thumbnail( $post->ID )) :
 
-        $featuredImageId = get_post_thumbnail_id($post->ID);
-        $featuredImage = OMP_Wordpress_DynamicResize::getResizedImageFromId(
-            $featuredImageId,
-            770,
-            null
-        );
 
 ?>
-                <img src="<?php echo $featuredImage['url']; ?>"
-                     alt="<?php echo $featuredImage['alt']; ?>" />
+                <?php echo get_the_post_thumbnail($post->ID, 'omp-recipe-featured-image', array('class' => 'img-polaroid')); ?>
 <?php
     endif;
 ?>
