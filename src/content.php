@@ -4,7 +4,8 @@
  */
 ?>
 <div class="row recipe-peepboxes">
-    <ul class="thumbnails">
+    <div class="span12">
+        <ul class="thumbnails">
 <?php
 if ( have_posts() ) :
     while ( have_posts() ) : the_post();
@@ -16,7 +17,9 @@ if ( have_posts() ) :
         <h1 class="No posts found"></h1>
 
 <?php endif; ?>
-    <!-- /thumbnails -->
-    </ul>
-<!-- /recipe-peepbox -->
+        <!-- /.thumbnails -->
+        </ul>
+    <!-- /.span12 -->
+    </div>
+<!-- /.recipe-peepbox -->
 </div>
