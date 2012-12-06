@@ -7,6 +7,9 @@
             //get_sidebar( 'footer' );
     ?>
 
+            </div><!-- .container -->
+        </div><!-- #content -->
+    </div><!-- #primary -->
     <div class="container">
         <div class="row">
             <div class="span12">
@@ -15,7 +18,7 @@
                         &copy; 2012 Alistair Wooldrige (OnMyPlate.co.uk)
                     </p>
                     <p class="muted credit">
-                        <a href="<?php echo esc_url(home_url('/')); ?>">OnMyPlate.co.uk</a> - Alistair Wooldrige's food blog
+                        <a href="<?php echo esc_url(home_url('/')); ?>">OnMyPlate.co.uk</a>
                     </p>
                 </footer>
             </div>

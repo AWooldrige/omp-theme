@@ -13,9 +13,6 @@
 
 get_header(); ?>
 
-    <div id="primary">
-        <div id="content" role="main">
-            <div class="container">
             <?php
                 if (is_single()) {
                     get_template_part(
@@ -31,9 +28,6 @@ get_header(); ?>
                 }
             ?>
 
-            </div><!-- .container -->
-        </div><!-- #content -->
-    </div><!-- #primary -->
 
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -5,7 +5,5 @@ Author: Alistair Wooldrige
 Author URI: http://onmyplate.co.uk/
 Description: Theme for recipes parsed using the OnMyPlate.co.uk Recipe Parser. Uses Twitter's Bootstrap.
 Version: {{VERSION}}
-License: GPLv2 or later
-License URI: license.txt
 Tags: light, two-columns, flexible-width, featured-images, post-formats, sticky-post, theme-options
 */

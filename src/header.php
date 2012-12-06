@@ -81,7 +81,7 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <?php wp_list_pages('title_li='); ?>
+                    <?php //wp_list_pages('title_li='); ?>
                 </ul>
                 <form class="navbar-search pull-right"
                       role="search"
@@ -96,3 +96,6 @@
 </div>
 
 <div class="container-fluid">
+    <div id="primary">
+        <div id="content" role="main">
+            <div class="container">

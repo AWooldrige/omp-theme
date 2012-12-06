@@ -1,9 +1,8 @@
-@fontsize-base: 19px;
+@fontsize-base: 18px;
 @fontcolour-body: #44444;
 @fontcolour-headings: #2C2C2C;
 @fontcolour-subtle: #777777;
 @background-colour: #F9F9F9;
-
 
 body {
     font-family: 'Average', 'Georgia', serif;
@@ -16,7 +15,6 @@ body, li {
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-    color: @fontcolour-headings;
 }
 .no-hover:link, .no-hover:visited, .no-hover:active {
     color: #333333;
@@ -32,22 +30,16 @@ h1, h2, h3, h4, h5, h6 {
 header {
     h1 {
         font-size: 45px;
-        margin: 0px 0 30px 0;
-        line-height: 45px;
     }
 }
 
 footer {
     padding: 20px 0 20px 0;
-    border-top: 1px solid lighten(@fontcolour-subtle, 30%);
+    border-top: 1px solid #EEE;
     font-size: 0.8em;
 }
 
-/* Styles for the sidebar on a recipe page */
-.omp-recipe-sidebar {
-    h3 {
-        margin: 0 0 0 0;
-    }
+.omp-recipe-ingredients {
     dl {
         margin: 0 0 30px 0;
     }
@@ -57,6 +49,11 @@ footer {
     dd {
         color: @fontcolour-subtle;
         font-size: round(@fontsize-base * 0.8);
+    }
+}
+.omp-recipe-method {
+    li {
+        margin-bottom: 8px;
     }
 }
 
@@ -77,4 +74,3 @@ footer {
         color: @fontcolour-subtle;
     }
 }
-

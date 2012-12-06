@@ -1,95 +1,77 @@
-<?php
-/**
- * Template for an individual recipe page.
- *
- * @package OMP
- * @subpackage Theme
- * @copyright 1997-2012 Alistair Wooldrige
- * @author Alistair Wooldrige <alistair@wooldrige.co.uk>
- */
-?>
-
-<!-- Recipe Header - Title and Image
-================================================== -->
-<div class="row">
-    <div class="span12">
-        <header class="jumbotron subhead" id="recipe-header-<?php the_ID(); ?>">
-            <h1 id="recipe-title"><?php the_title(); ?></h1>
-        </header>
-    <!-- /span12 -->
+<article id="post-<?php the_ID(); ?>" class="recipe">
+    <div class="row">
+        <div class="span12">
+            <header class="page-header">
+                <h1><?php the_title(); ?></h1>
+            </header>
+        <!-- /.span12 -->
+        </div>
+    <!-- /.row -->
     </div>
-<!-- /row -->
-</div>
 
-<!-- Recipe Content - Method & Sidebar
-================================================== -->
-<section id="recipe-body-<?php the_ID(); ?>" class="recipe-body">
     <div class="row">
         <div class="span8">
-
-            <!-- Featured Image -->
-<?php
-    if (has_post_thumbnail( $post->ID )) :
-
-
-?>
-                <?php echo get_the_post_thumbnail($post->ID, 'omp-recipe-featured-image', array('class' => 'img-polaroid')); ?>
-<?php
-    endif;
-?>
-
-            <article id="post-<?php the_ID(); ?>" class="recipe-left">
-
-                <div class="omp-recipe-summary">
+            <?php
+            if (has_post_thumbnail( $post->ID )) {
+                echo get_the_post_thumbnail(
+                    $post->ID,
+                    'omp-recipe-featured-image',
+                    array('class' => 'img-polaroid')
+                );
+            }
+            ?>
+            <div class="omp-recipe-summary lead">
                 <?php echo $post->post_content_filtered; ?>
-                </div>
+            </div>
 
-                <h2>Method</h2>
-<?php
-    echo ompThemeMethodList($post->recipe_data['Method']);
-?>
+            <h3>Method</h3>
+            <div class="omp-recipe-method">
+                <?php
+                echo ompThemeMethodList(
+                    $post->recipe_data['Method']
+                );
+                ?>
+            </div>
 
+            <?php
+            if ($post->recipe_data['Tips'] !== NULL) {
+                echo '<h3>Tips</h3>';
+                echo ompThemeList($post->recipe_data['Tips']);
+            }
 
-<?php
-    if ($post->recipe_data['Tips'] !== NULL) {
-        echo '<h2>Tips</h2>';
-        echo ompThemeList($post->recipe_data['Tips']);
-    }
+            if($post->recipe_data['Meta'] !== NULL) {
+                echo '<h3>Information</h3>';
+                echo ompThemeMeta($post->recipe_data['Meta']);
+            }
+            ?>
 
-    if($post->recipe_data['Meta'] !== NULL) {
-        echo '<h2>Information</h2>';
-        echo ompThemeMeta($post->recipe_data['Meta']);
-    }
-?>
-
-            <!-- #post-<?php the_ID(); ?> -->
-            </article>
         <!-- /span8 -->
         </div>
 
-        <div class="span4 omp-recipe-sidebar">
-
-<?php
-    ksort($post->recipe_data['Ingredients']);
-    if (isset($post->recipe_data['Ingredients']['_'])) {
-        echo '<h3>Main Ingredients</h3>';
-        echo ompThemeIngredientsListDescription($post->recipe_data['Ingredients']['_']);
-        unset($post->recipe_data['Ingredients']['_']);
-    }
-    foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
-        echo '<h3>' . $component . ' Ingredients</h3>';
-        echo ompThemeIngredientsListDescription($ingredients);
-    }
-?>
-
-                <div class="entry-content">
-                    <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
-            <!-- .entry-content -->
+        <div class="span4">
+            <div class="omp-recipe-ingredients">
+            <?php
+            ksort($post->recipe_data['Ingredients']);
+            if (isset($post->recipe_data['Ingredients']['_'])) {
+                echo '<h3>Main Ingredients</h3>';
+                echo ompThemeIngredientsListDescription(
+                    $post->recipe_data['Ingredients']['_']
+                );
+                unset($post->recipe_data['Ingredients']['_']);
+            }
+            foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
+                echo '<h3>' . $component . ' Ingredients</h3>';
+                echo ompThemeIngredientsListDescription(
+                    $ingredients
+                );
+            }
+            ?>
             </div>
 
-        <!-- /span4 /omp-recipe-sidebar -->
+            <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
+
+        <!-- /span4 -->
         </div>
     <!-- /row -->
     </div>
-<!-- /recipe-body-<?php the_ID(); ?> -->
-</section>
+</article>
