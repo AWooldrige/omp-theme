@@ -1,5 +1,6 @@
 @fontsize-base: 18px;
-@fontcolour-body: #44444;
+@fontcolour-body: #333;
+@fontcolour-hover: #08C;
 @fontcolour-headings: #2C2C2C;
 @fontcolour-subtle: #777777;
 @background-colour: #F9F9F9;
@@ -15,9 +16,6 @@ body, li {
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-}
-.no-hover:link, .no-hover:visited, .no-hover:active {
-    color: #333333;
 }
 
 .sidebar-nav {
@@ -37,6 +35,18 @@ footer {
     padding: 20px 0 20px 0;
     border-top: 1px solid #EEE;
     font-size: 0.8em;
+    color: @fontcolour-subtle;
+    a {
+        &:link, &:visited, &:active { color: @fontcolour-subtle; }
+        &:hover { color: @fontcolour-hover; }
+    }
+}
+
+.alert {
+    h3 {
+        font-weight: bold;
+        margin: 0px;
+    }
 }
 
 .omp-recipe-ingredients {
@@ -64,12 +74,15 @@ footer {
 }
 
 .omp-recipe-peepbox {
-    .title {
-        color: @fontcolour-headings;
+    h3 {
         line-height: 30px;
-        margin: 10px 0px 5px 0px;
+        margin-bottom: 3px;
+        a {
+            &:link, &:visited, &:active { color: @fontcolour-headings; }
+            &:hover { color: @fontcolour-hover; }
+        }
     }
-    .description {
+    p {
         font-size: round(@fontsize-base * 0.8);
         color: @fontcolour-subtle;
     }

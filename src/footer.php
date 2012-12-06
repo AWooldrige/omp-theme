@@ -14,10 +14,10 @@
         <div class="row">
             <div class="span12">
                 <footer>
-                    <p class="pull-right muted credit">
-                        &copy; 2012 Alistair Wooldrige (OnMyPlate.co.uk)
+                    <p class="pull-right">
+                        &copy; 2012 Alistair Wooldrige
                     </p>
-                    <p class="muted credit">
+                    <p>
                         <a href="<?php echo esc_url(home_url('/')); ?>">OnMyPlate.co.uk</a>
                     </p>
                 </footer>

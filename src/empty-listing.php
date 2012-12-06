@@ -4,8 +4,6 @@
                 Sadly, there were no recipes found that match your criteria.
                 Try another keyword using the search box at the top of this page.
                 Or start from the beginning -
-                <a href="<?php echo esc_url(home_url('/')); ?>">
-                    <?php bloginfo( 'name' ); ?>
-                </a>
+                <a href="<?php echo esc_url(home_url('/')); ?>">OnMyPlate.co.uk</a>
             </p>
         </div>
