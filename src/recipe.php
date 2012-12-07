@@ -1,9 +1,7 @@
-<article id="post-<?php the_ID(); ?>" class="recipe">
+<article class="omp-recipe">
     <div class="row">
         <div class="span12">
-            <header class="page-header">
-                <h1><?php the_title(); ?></h1>
-            </header>
+            <header> <h1><?php the_title(); ?></h1> </header>
         <!-- /.span12 -->
         </div>
     <!-- /.row -->
@@ -20,12 +18,12 @@
                 );
             }
             ?>
-            <div class="omp-recipe-summary lead">
+            <div class="lead">
                 <?php echo $post->post_content_filtered; ?>
             </div>
 
             <h3>Method</h3>
-            <div class="omp-recipe-method">
+            <div>
                 <?php
                 echo ompThemeMethodList(
                     $post->recipe_data['Method']
@@ -48,26 +46,24 @@
         <!-- /span8 -->
         </div>
 
-        <div class="span4">
-            <div class="omp-recipe-ingredients">
-                <?php
-                ksort($post->recipe_data['Ingredients']);
+    <div class="span4">
+        <?php
+        ksort($post->recipe_data['Ingredients']);
 
-                $classForFirst = ' class="no-top-margin"';
-                foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
-                    if($component == '_') {
-                        $component = 'Main';
-                    }
+        $classForFirst = ' class="no-top-margin"';
+        foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
+            if($component == '_') {
+                $component = 'Main';
+            }
 
-                    echo '<h3'.$classForFirst.'>'.$component.' Ingredients</h3>';
+            echo '<h3'.$classForFirst.'>'.$component.' Ingredients</h3>';
 
-                    $classForFirst = '';
-                    echo ompThemeIngredientsListDescription(
-                        $ingredients
-                    );
-                }
-                ?>
-            </div>
+            $classForFirst = '';
+            echo ompThemeIngredientsListDescription(
+                $ingredients
+            );
+        }
+        ?>
 
             <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 

@@ -12,7 +12,7 @@ body {
     background-color: @background-colour;
 }
 body, li {
-    line-height: @fontsize-base * 1.2;
+    line-height: round(@fontsize-base * 1.2);
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
@@ -52,7 +52,7 @@ footer {
     margin-top: 0px;
 }
 
-.omp-recipe-ingredients {
+.omp-recipe {
     dl {
         margin: 0 0 30px 0;
     }
@@ -63,17 +63,10 @@ footer {
         color: @fontcolour-subtle;
         font-size: round(@fontsize-base * 0.8);
     }
-}
-.omp-recipe-method {
+
     li {
         margin-bottom: 8px;
     }
-}
-
-.recipe-body h2 {
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 10px;
 }
 
 .omp-recipe-peepbox {
