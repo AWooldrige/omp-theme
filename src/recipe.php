@@ -50,22 +50,23 @@
 
         <div class="span4">
             <div class="omp-recipe-ingredients">
-            <?php
-            ksort($post->recipe_data['Ingredients']);
-            if (isset($post->recipe_data['Ingredients']['_'])) {
-                echo '<h3>Main Ingredients</h3>';
-                echo ompThemeIngredientsListDescription(
-                    $post->recipe_data['Ingredients']['_']
-                );
-                unset($post->recipe_data['Ingredients']['_']);
-            }
-            foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
-                echo '<h3>' . $component . ' Ingredients</h3>';
-                echo ompThemeIngredientsListDescription(
-                    $ingredients
-                );
-            }
-            ?>
+                <?php
+                ksort($post->recipe_data['Ingredients']);
+
+                $classForFirst = ' class="no-top-margin"';
+                foreach($post->recipe_data['Ingredients'] as $component => $ingredients) {
+                    if($component == '_') {
+                        $component = 'Main';
+                    }
+
+                    echo '<h3'.$classForFirst.'>'.$component.' Ingredients</h3>';
+
+                    $classForFirst = '';
+                    echo ompThemeIngredientsListDescription(
+                        $ingredients
+                    );
+                }
+                ?>
             </div>
 
             <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>

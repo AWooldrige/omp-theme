@@ -91,27 +91,19 @@ function ompThemeIngredientsListUnordered($ingredients) {
  * @return string the HTML DL representation of the array
  */
 function ompThemeIngredientsListDescription($ingredients) {
-
-
-    $line = "<dl class=\"omp-ingredients-list\">\n\n";
+    $line = "<dl>";
     foreach($ingredients as $i) {
         $directives = ($i['quantity'] !== NULL) ? $i['quantity'] : '';
-        $directives .= ($i['directive'] !== NULL) ? ' - ' . $i['directive'] : '';
+        $directives .= ($i['directive'] !== NULL) ? ' - '.$i['directive'] : '';
         $directives = (mb_strlen($directives) > 0) ? $directives : NULL;
-
-        $iLine = "\n" . '    <dt class="omp-ingredient-name">' . $i['name'] .
-            "</dt>\n";
+        $iLine = "\n".'<dt>'.$i['name']."</dt>\n";
 
         if($directives !== NULL) {
-            $iLine .= '    <dd class="omp-ingredient-directives">' .
-                $directives . "</dd>\n";
+            $iLine .= '<dd>'.$directives."</dd>";
         }
-
         $line .= $iLine;
     }
-    $line .= '<!-- /omp-ingredients-list -->';
     $line .= "\n</dl>\n";
-
     return $line;
 }
 
