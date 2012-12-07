@@ -40,50 +40,6 @@ function jpeg_resize_quality($quality){
 add_filter('jpeg_quality', 'jpeg_resize_quality');
 
 /**
- * Return a formatted ingredients unordered list
- *
- * @param array $ingredients 1D array of ingredients
- * @access public
- * @return string the HTML UL representation of the array
- */
-function ompThemeIngredientsListUnordered($ingredients) {
-    $line = "<ul class=\"omp-ingredients-list\">\n\n";
-    foreach($ingredients as $i) {
-        $iLine = '    <li><span class="omp-ingredient-name">' . $i['name'] .
-                 '</span><br />';
-
-        if ((NULL !== $i['quantity']) || (NULL !== $i['directive'])) {
-
-            $iLine .= '<span class="omp-ingredient-meta">';
-
-            if(NULL !== $i['quantity']) {
-                $iLine .= '<span class="omp-ingredient-quantity">' .
-                          $i['quantity'] . '</span>';
-            }
-
-            if(NULL !== $i['directive']) {
-
-                if(NULL !== $i['quantity']) {
-                    $iLine .= ' - ';
-                }
-
-                $iLine .= '<span class="omp-ingredient-directive"><em>' .
-                          $i['directive'] . '</em></span>';
-            }
-
-            $iLine .= '</span>';
-        }
-
-        $iLine .= "</li>\n";
-        $line .= $iLine;
-    }
-    $line .= '<!-- /omp-ingredients-list -->';
-    $line .= "\n</ul>\n";
-
-    return $line;
-}
-
-/**
  * Return a formatted ingredients description list
  *
  * @param array $ingredients 1D array of ingredients
