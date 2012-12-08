@@ -96,7 +96,7 @@ function ompThemeMethodList($method) {
  * @return string unordered list of meta items for display
  */
 function ompThemeMeta($meta) {
-    $line = "<div class=\"row omp-recipe-meta\">\n";
+    $line = "<ul class=\"omp-recipe-meta\">\n";
     foreach($meta as $key => $val) {
         $icon = '';
         switch($key) {
@@ -125,12 +125,10 @@ function ompThemeMeta($meta) {
                 $icon = 'icon-user';
                 break;
         }
-        $iLine = '    <div class="span2"><i class="' . $icon . '"></i> ' . $title .
-                 ': ' . $val . "</div>\n";
-        $line .= $iLine;
+        $line .= '<li><i class="'.$icon.'"></i> '.$title.': '.$val."</li>\n";
     }
     $line .= '<!-- /omp-recipe-meta -->';
-    $line .= "\n</div>\n";
+    $line .= "\n</ul>\n";
 
     return $line;
 }

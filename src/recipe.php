@@ -14,7 +14,7 @@
                 echo get_the_post_thumbnail(
                     $post->ID,
                     'omp-recipe-featured-image',
-                    array('class' => 'img-polaroid')
+                    array('class' => 'img-polaroid featured-image')
                 );
             }
             ?>
@@ -35,11 +35,6 @@
             if ($post->recipe_data['Tips'] !== NULL) {
                 echo '<h3>Tips</h3>';
                 echo ompThemeList($post->recipe_data['Tips']);
-            }
-
-            if($post->recipe_data['Meta'] !== NULL) {
-                echo '<h3>Information</h3>';
-                echo ompThemeMeta($post->recipe_data['Meta']);
             }
             ?>
 
@@ -62,6 +57,12 @@
             echo ompThemeIngredientsListDescription(
                 $ingredients
             );
+        }
+        ?>
+        <?php
+        if($post->recipe_data['Meta'] !== NULL) {
+            echo '<h3>Information</h3>';
+            echo ompThemeMeta($post->recipe_data['Meta']);
         }
         ?>
 
