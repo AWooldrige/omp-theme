@@ -78,10 +78,9 @@
             </a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <?php //wp_list_pages('title_li='); ?>
+                    <li<?php if(is_home()) { echo ' class="active"'; } ?>><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
+                    <li<?php if(is_page('About')) { echo ' class="active"'; } ?>><a href="<?php echo esc_url(home_url('/')); ?>about">About</a></li>
+                    <li<?php if(is_page('Contact')) { echo ' class="active"'; } ?>><a href="<?php echo esc_url(home_url('/')); ?>contact">Contact</a></li>
                 </ul>
                 <form class="navbar-search pull-right"
                       role="search"
