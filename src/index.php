@@ -8,7 +8,6 @@
  * @subpackage Theme
  * @copyright 1997-2012 Alistair Wooldrige
  * @author Alistair Wooldrige <alistair@wooldrige.co.uk>
- * @license Apache License, Version 2.0 {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 
 get_header(); ?>
@@ -29,5 +28,4 @@ get_header(); ?>
             ?>
 
 
-<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

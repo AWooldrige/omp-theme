@@ -38,6 +38,7 @@
             }
             ?>
 
+            <?php comments_template( '', true ); ?> 
         <!-- /span8 -->
         </div>
 
