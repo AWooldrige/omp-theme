@@ -1,7 +1,7 @@
 <article class="omp-recipe">
     <div class="row">
         <div class="span12">
-            <header> <h1><?php the_title(); ?></h1> </header>
+            <header><h1><?php the_title(); ?></h1></header>
         <!-- /.span12 -->
         </div>
     <!-- /.row -->
@@ -38,7 +38,8 @@
             }
             ?>
 
-            <?php comments_template( '', true ); ?> 
+            <h3 class="top-line">Comments</h3>
+            <?php comments_template('', true); ?>
         <!-- /span8 -->
         </div>
 

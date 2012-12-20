@@ -4,6 +4,7 @@
 @fontcolour-headings: #2C2C2C;
 @fontcolour-subtle: #777777;
 @background-colour: #F9F9F9;
+@line-colour: #EEE;
 
 body {
     font-family: 'Average', 'Georgia', serif;
@@ -33,7 +34,7 @@ header {
 
 footer {
     padding: 20px 0 20px 0;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid @line-colour;
     font-size: 0.8em;
     color: @fontcolour-subtle;
     a {
@@ -72,6 +73,11 @@ footer {
     }
     .featured-image {
         margin-bottom: 20px;
+    }
+    .top-line {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid @line-colour;
     }
 }
 
