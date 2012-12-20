@@ -1,3 +1,6 @@
+<?php get_header(); ?>
+
+<!-- Individual recipe -->
 <article class="omp-recipe">
     <div class="row">
         <div class="span12">
@@ -75,3 +78,5 @@
     <!-- /row -->
     </div>
 </article>
+
+<?php get_footer(); ?>
