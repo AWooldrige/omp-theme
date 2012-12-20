@@ -1,8 +1,3 @@
-<?php
-/**
- * Template for a recipe peepbox
- */
-?>
 <!-- Recipe peepbox -->
 <li class="span4 omp-recipe-peepbox">
     <div class="thumbnail">

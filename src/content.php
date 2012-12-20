@@ -18,9 +18,7 @@
         ?>
         <div class="alert alert-block">
             <h3>No Recipe Found</h3>
-            <p>
-                No recipe could be found at the URL you provided.
-            </p>
+            <p>No recipe could be found at the URL you provided.</p>
             <p>
                 <ol>
                     <li>Try searching for the recipe, it may have moved!</li>
