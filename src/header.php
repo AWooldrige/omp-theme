@@ -8,7 +8,7 @@
  * @package OMP
  * @subpackage Theme
  * @copyright 1997-2012 Alistair Wooldrige
- * @author Alistair Wooldrige <alistair@wooldrige.co.uk> 
+ * @author Alistair Wooldrige <alistair@wooldrige.co.uk>
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,19 +20,19 @@
          */
         global $page, $paged;
 
-        wp_title( '|', true, 'right' );
+        wp_title('|', true, 'right');
 
         // Add the blog name.
-        bloginfo( 'name' );
+        bloginfo('name');
 
         // Add the blog description for the home/front page.
-        $site_description = get_bloginfo( 'description', 'display' );
-        if ( $site_description && ( is_home() || is_front_page() ) )
+        $site_description = get_bloginfo('description', 'display');
+        if ($site_description && (is_home() || is_front_page()))
             echo " | $site_description";
 
         // Add a page number if necessary:
-        if ( $paged >= 2 || $page >= 2 )
-            echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
+        if ($paged >= 2 || $page >= 2)
+            echo ' | ' . sprintf('Page %s', max($paged, $page));
 
     ?></title>
 
