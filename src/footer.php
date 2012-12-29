@@ -9,7 +9,7 @@
                     <p class="pull-right">&copy; 2012 Alistair Wooldrige</p>
                     <p>
                         <a href="<?php echo esc_url(home_url('/')); ?>">
-                            OnMyPlate.co.uk
+                            <?php bloginfo( 'name' ); ?>
                         </a> - <?php echo get_bloginfo('description', 'display') ?>
                     </p>
                 </footer>

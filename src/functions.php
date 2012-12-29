@@ -135,3 +135,29 @@ function ompThemeList(array $data, $type = 'ul', $class = NULL) {
 
     return $line;
 }
+
+
+function create_post_type() {
+    register_post_type('recipe',
+        array(
+            'labels' => array(
+                'name' => 'Recipes',
+                'singular_name' => 'Recipe'
+            ),
+            'taxonomies' => array('category', 'post_tag'),
+            'public' => true,
+            'has_archive' => true
+        )
+    );
+}
+add_action('init', 'create_post_type');
+
+
+//show posts of post type 'post', 'page' and 'movie' on home page
+add_filter('pre_get_posts', 'add_my_custom_post_type');
+
+function add_my_custom_post_type($query) {
+    if (is_home() && $query->is_main_query())
+        $query->set('post_type', array('post', 'recipe'));
+    return $query;
+}

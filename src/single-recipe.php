@@ -25,7 +25,7 @@
                 <?php echo $post->post_content_filtered; ?>
             </div>
 
-            <h3>Method</h3>
+            <h3 class="no-top-margin">Method</h3>
             <div>
                 <?php
                 echo ompThemeMethodList(
@@ -41,8 +41,6 @@
             }
             ?>
 
-            <h3 class="top-line">Comments</h3>
-            <?php comments_template('', true); ?>
         <!-- /span8 -->
         </div>
 
@@ -75,6 +73,13 @@
 
         <!-- /span4 -->
         </div>
+    <!-- /row -->
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <h3 class="top-line">Comments</h3>
+            <?php comments_template('', true); ?>
     <!-- /row -->
     </div>
 </article>
