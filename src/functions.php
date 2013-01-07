@@ -56,7 +56,6 @@ function ompThemeMethodList($method) {
     return $line;
 }
 
-
 /**
  * Return an unformatted list for the meta items, with an icon for each
  *
@@ -105,7 +104,6 @@ function ompThemeMeta($meta) {
 /**
  * Output a generic HTML list from the array given. The array is expected to
  * have the following format:
- * TODO
  *
  * @param array $data unordred list containing data to format
  * @param string $type optional list type (ul or ol). Defaults to ul
@@ -136,8 +134,10 @@ function ompThemeList(array $data, $type = 'ul', $class = NULL) {
     return $line;
 }
 
-
-function create_post_type() {
+/**
+ * Registers the OMP custom post types
+ */
+function register_omp_custom_post_types() {
     register_post_type('recipe',
         array(
             'labels' => array(
@@ -150,14 +150,15 @@ function create_post_type() {
         )
     );
 }
-add_action('init', 'create_post_type');
+add_action('init', 'register_omp_custom_post_types');
 
-
-//show posts of post type 'post', 'page' and 'movie' on home page
-add_filter('pre_get_posts', 'add_my_custom_post_type');
-
-function add_my_custom_post_type($query) {
-    if (is_home() && $query->is_main_query())
+/**
+ * Adds the recipe custom post type to the main post query
+ */
+function add_omp_custom_post_types_to_main_loop($query) {
+    if (is_home() && $query->is_main_query()) {
         $query->set('post_type', array('post', 'recipe'));
+    }
     return $query;
 }
+add_filter('pre_get_posts', 'add_omp_custom_post_types_to_main_loop');
