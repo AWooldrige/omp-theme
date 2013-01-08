@@ -36,6 +36,7 @@ devclean:
 build: clean prep
 	unzip bootstrap/bootstrap-2.2.1.zip -d $(BUILDDIR)
 	cp src/*.php $(BUILDDIR)
+	cp -R src/images $(BUILDDIR)
 	cp -R jquery $(BUILDDIR)
 	# Compile the LESS CSS and YUI Compress
 	lessc ./src/style.less $(BUILDDIR)style.css.out --yui-compress
