@@ -75,7 +75,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="<?php echo esc_url(home_url('/')); ?>"><img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-navbar.png"> <?php bloginfo('name'); ?></a>
+            <a class="brand-logo" href="<?php echo esc_url(home_url('/')); ?>"><img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-navbar.png"></a>
+            <a class="brand" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li<?php if(is_home()) { echo ' class="active"'; } ?>><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
