@@ -5,7 +5,7 @@
  * thumbnails is provided in the admin interface
  */
 add_theme_support('post-thumbnails');
-add_image_size('omp-recipe-peepbox', 370, 170, true);
+add_image_size('omp-recipe-peepbox', 370, 200, true);
 add_image_size('omp-recipe-featured-image', 770, 999999);
 
 /**
@@ -134,6 +134,35 @@ function ompThemeList(array $data, $type = 'ul', $class = NULL) {
     return $line;
 }
 
+function add_custom_taxonomies() {
+    register_taxonomy(
+        'recipe-category',
+        'recipe',
+        array(
+            'hierarchical' => true,
+            'labels' => array(
+                'name' => __('Recipe Category'),
+                'singular_name' => __('Recipe Category'),
+                'search_items' => __('Search Recipe Categories'),
+                'all_items' => __('All Recipe Categories'),
+                'parent_item' => __('Parent Recipe Category'),
+                'parent_item_colon' => __('Parent Recipe Category:'),
+                'edit_item' => __('Edit Recipe Category'),
+                'update_item' => __('Update Recipe Category'),
+                'add_new_item' => __('Add New Recipe Category'),
+                'new_item_name' => __('New Recipe Category'),
+                'menu_name' => __('Recipe Categories'),
+            ),
+            'rewrite' => array(
+                'slug' => 'locations',
+                'with_front' => false,
+                'hierarchical' => true
+            ),
+        )
+    );
+}
+add_action('init', 'add_custom_taxonomies', 0);
+
 /**
  * Registers the OMP custom post types
  */
@@ -141,12 +170,28 @@ function register_omp_custom_post_types() {
     register_post_type('recipe',
         array(
             'labels' => array(
-                'name' => 'Recipes',
-                'singular_name' => 'Recipe'
+                'name' => __('Recipes'),
+                'singular_name' => __('Recipe'),
+                'add_new' => __('Add New'),
+                'add_new_item' => __('Add New Recipe'),
+                'edit' => __('Edit'),
+                'edit_item' => __('Edit Recipe'),
+                'new_item' => __('New Recipe'),
+                'view' => __('View'),
+                'view_item' => __('View Recipe'),
+                'search_items' => __('Search Recipes'),
+                'not_found' => __('No recipes found'),
+                'not_found_in_trash' => __('No recipess found in Trash'),
+                'parent' => __('Parent Recipe'),
             ),
-            'taxonomies' => array('category', 'post_tag'),
             'public' => true,
-            'has_archive' => true
+            'menu_position' => 5,
+            'query_var' => true,
+            'has_archive' => true,
+            'taxonomies' => array('post_tag', 'recipe-category'),
+            'supports' => array(
+                'title', 'editor', 'author', 'thumbnail', 'trackbacks',
+                'comments', 'revisions', 'post-formats')
         )
     );
 }
