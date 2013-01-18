@@ -113,7 +113,7 @@ function ompThemeMeta($meta) {
  */
 function ompThemeList(array $data, $type = 'ul', $class = NULL) {
 
-    if((count($data) === 1) || ($data === Null)) return null;
+    if((count($data) <= 0) || ($data === Null)) return null;
 
     $line = '<' . $type;
     if ($class !== NULL) {
