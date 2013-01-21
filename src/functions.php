@@ -7,6 +7,7 @@
 add_theme_support('post-thumbnails');
 add_image_size('omp-recipe-peepbox', 370, 200, true);
 add_image_size('omp-recipe-featured-image', 770, 999999);
+add_image_size('omp-recipe-extra-images', 560, 999999);
 
 /**
  * Return a formatted ingredients description list
@@ -181,7 +182,7 @@ function register_omp_custom_post_types() {
                 'view_item' => __('View Recipe'),
                 'search_items' => __('Search Recipes'),
                 'not_found' => __('No recipes found'),
-                'not_found_in_trash' => __('No recipess found in Trash'),
+                'not_found_in_trash' => __('No recipes found in Trash'),
                 'parent' => __('Parent Recipe'),
             ),
             'public' => true,

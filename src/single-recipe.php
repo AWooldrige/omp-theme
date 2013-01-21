@@ -29,7 +29,11 @@
             }
             ?>
             <div class="lead">
-                <?php echo $post->post_content_filtered; ?>
+                <?php echo $post->recipe_data["Text"]["summary"]; ?>
+            </div>
+
+            <div class="other-text">
+                <?php echo wpautop($post->recipe_data["Text"]["other"], false); ?>
             </div>
 
             <h3 class="no-top-margin">Method</h3>
@@ -47,6 +51,7 @@
                 echo ompThemeList($post->recipe_data['Tips']);
             }
             ?>
+
 
         <!-- /span8 -->
         </div>
@@ -84,6 +89,47 @@
         ?>
         <small>Recipe published on <?php echo $post_date; ?>.</small>
         <!-- /span4 -->
+        </div>
+    <!-- /row -->
+    </div>
+
+    <div class="row extra-images">
+        <div class="span12">
+            <?php
+            if ($post->recipe_data['Images'] !== NULL) {
+            ?>
+                <ul class="thumbnails">
+                <?php
+                foreach($post->recipe_data['Images'] as $image) {
+                    $image_url = wp_get_attachment_url($image['attachment_id']);
+                ?>
+                    <li class="span6">
+                        <div class="thumbnail">
+                            <a href="<?php echo $image_url; ?>" target="_blank">
+                                <?php
+                                echo wp_get_attachment_image(
+                                    $image['attachment_id'],
+                                    'omp-recipe-extra-images',
+                                    False
+                                );
+                                ?>
+                            </a>
+
+                            <?php
+                            if($image['description'] !== Null) {
+                                echo '<p>' . $image['description'] . '</p>';
+                            }
+                            ?>
+                        </div>
+                    </li>
+                <?php
+                }
+                ?>
+                </ul>
+            <?php
+            }
+            ?>
+        <!-- /span12 -->
         </div>
     <!-- /row -->
     </div>
