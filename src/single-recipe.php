@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
 <!-- Individual recipe -->
-<article class="omp-recipe">
+<article itemscope itemtype="http://schema.org/Recipe" class="omp-recipe">
     <div class="row">
         <div class="span12">
-            <header><h1><?php the_title(); ?></h1></header>
+            <header><h1 itemprop="name"><?php the_title(); ?></h1></header>
         <!-- /.span12 -->
         </div>
     <!-- /.row -->
@@ -28,7 +28,7 @@
             <?php
             }
             ?>
-            <div class="lead">
+            <div itemprop="description" class="lead">
                 <?php echo $post->recipe_data["Text"]["summary"]; ?>
             </div>
 
@@ -37,7 +37,7 @@
             </div>
 
             <h3 class="no-top-margin">Method</h3>
-            <div>
+            <div itemprop="recipeInstructions">
                 <?php
                 echo ompThemeMethodList(
                     $post->recipe_data['Method']
@@ -78,13 +78,49 @@
         <h3>Recipe Information</h3>
         <?php
         $post_date = sprintf(
+            '<meta itemprop="datePublished" content="%1$s">',
+            get_the_date('Y-m-d')
+        );
+        $post_date .= sprintf(
             '<time class="entry-date" datetime="%1$s">%2$s</time>',
             esc_attr(get_the_date('c')),
             esc_html(get_the_date())
         );
 
         if($post->recipe_data['Meta'] !== NULL) {
-            echo ompThemeMeta($post->recipe_data['Meta']);
+        ?>
+            <ul class="omp-recipe-meta">
+            <?php
+            foreach($post->recipe_data['Meta'] as $key => $val) {
+                switch($key) {
+                    case 'active_time':
+                        echo '<li><i class="icon-time"></i> Active Time: ' .
+                            '<meta itemprop="prepTime" content="PT'.$val.'M">' .
+                            $val . ' mins</li>';
+                        break;
+                    case 'inactive_time':
+                        echo '<li><i class="icon-time"></i> Inactive Time: ' .
+                            '<meta itemprop="cookTime" content="PT'.$val.'M">' .
+                            $val . ' mins</li>';
+                        break;
+                    case 'difficulty':
+                        echo '<li><i class="icon-signal"></i> Difficulty: ' .
+                            $val . '</li>';
+                        break;
+                    case 'rating':
+                        echo '<li><i class="icon-star"></i> Our Rating: ' .
+                            $val . '</li>';
+                        break;
+                    case 'serves':
+                        echo '<li><i class="icon-user"></i> Serves: ' .
+                            '<span itemprop="recipeYield">'.$val.'</span></li>';
+                        break;
+                }
+            }
+            ?>
+            <!-- /omp-recipe-meta -->
+            </ul>
+        <?php
         }
         ?>
         <small>Recipe published on <?php echo $post_date; ?>.</small>
@@ -105,7 +141,7 @@
                 ?>
                     <li class="span6">
                         <div class="thumbnail">
-                            <a href="<?php echo $image_url; ?>" target="_blank">
+                            <a itemprop="image" href="<?php echo $image_url; ?>" target="_blank">
                                 <?php
                                 echo wp_get_attachment_image(
                                     $image['attachment_id'],

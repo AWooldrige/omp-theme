@@ -56,3 +56,8 @@ clean:
 
 prep:
 	mkdir -p $(BUILDDIR) SOURCES
+
+
+release: dist
+	git tag -a v$(VERSION) -m"Tagging $(VERSION) release of omp-theme"
+	git push --tags

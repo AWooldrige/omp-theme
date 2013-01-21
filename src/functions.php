@@ -22,7 +22,7 @@ function ompThemeIngredientsListDescription($ingredients) {
         $directives = ($i['quantity'] !== NULL) ? $i['quantity'] : '';
         $directives .= ($i['directive'] !== NULL) ? ' - '.$i['directive'] : '';
         $directives = (mb_strlen($directives) > 0) ? $directives : NULL;
-        $iLine = "\n".'<dt>'.$i['name']."</dt>\n";
+        $iLine = "\n".'<dt itemprop="ingredients">'.$i['name']."</dt>\n";
 
         if($directives !== NULL) {
             $iLine .= '<dd>'.$directives."</dd>";
@@ -52,51 +52,6 @@ function ompThemeMethodList($method) {
         $line .= $iLine;
     }
     $line .= '<!-- /omp-method-list -->';
-    $line .= "\n</ul>\n";
-
-    return $line;
-}
-
-/**
- * Return an unformatted list for the meta items, with an icon for each
- *
- * @param array $meta key/value of metadata about recipe
- * @access public
- * @return string unordered list of meta items for display
- */
-function ompThemeMeta($meta) {
-    $line = "<ul class=\"omp-recipe-meta\">\n";
-    foreach($meta as $key => $val) {
-        $icon = '';
-        switch($key) {
-            case 'active_time':
-                $title = 'Active Time';
-                $icon = 'icon-time';
-                break;
-            case 'inactive_time':
-                $title = 'Inactive Time';
-                $icon = 'icon-time';
-                break;
-            case 'difficulty':
-                $title = 'Difficulty';
-                $icon = 'icon-signal';
-                break;
-            case 'rating':
-                $title = 'Our Rating';
-                $icon = 'icon-star';
-                break;
-            case 'cost':
-                $title = 'Cost per Serving';
-                $icon = 'icon-shopping-cart';
-                break;
-            case 'serves':
-                $title = 'Serves';
-                $icon = 'icon-user';
-                break;
-        }
-        $line .= '<li><i class="'.$icon.'"></i> '.$title.': '.$val."</li>\n";
-    }
-    $line .= '<!-- /omp-recipe-meta -->';
     $line .= "\n</ul>\n";
 
     return $line;
