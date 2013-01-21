@@ -1,5 +1,8 @@
+0.2.0 - 2013-01-21
+	* schema.org tags have been added
+	* Extra images can be added to recipes using === Images ===
 	* Featured recipe images now link to the full size version
 	* When the recipe was published has been added
 
 0.1.0 - 2013-01-13
-    * Initial Release
+	* Initial Release
