@@ -1,3 +1,6 @@
+0.2.1 - 2013-01-21
+	* Needed to add the height element back to recipe peepboxes
+
 0.2.0 - 2013-01-21
 	* schema.org tags have been added
 	* Extra images can be added to recipes using === Images ===
