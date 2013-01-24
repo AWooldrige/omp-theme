@@ -6,7 +6,7 @@
         <div class="row">
             <div class="span12">
                 <footer>
-                    <p class="pull-right">&copy; 2012 Alistair Wooldrige</p>
+                <p class="pull-right">&copy; <?php echo date('Y'); ?> Alistair Wooldrige</p>
                     <p>
                         <a href="<?php echo esc_url(home_url('/')); ?>">
                             <?php bloginfo( 'name' ); ?>
