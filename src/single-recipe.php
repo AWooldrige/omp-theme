@@ -18,10 +18,16 @@
             ?>
                 <a href="<?php echo $image_url; ?>" target="_blank">
                 <?php
-                echo get_the_post_thumbnail(
+                $featured_image_html = get_the_post_thumbnail(
                     $post->ID,
                     'omp-recipe-featured-image',
                     array('class' => 'img-polaroid featured-image')
+                );
+
+                echo str_replace(
+                    '<img',
+                    '<img itemprop="image"',
+                    $featured_image_html
                 );
                 ?>
                 </a>
