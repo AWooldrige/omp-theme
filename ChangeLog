@@ -1,3 +1,9 @@
+0.3.0 - 2013-02-12
+	* Update to the Twitter Bootstrap 2.3.0
+	* Temporary change the frontend display of meta titles
+	* Copyright year is generated rather than hardcoded
+	* Image itemprop added to the featured image of a recipe page
+
 0.2.1 - 2013-01-21
 	* Needed to add the height element back to recipe peepboxes
 

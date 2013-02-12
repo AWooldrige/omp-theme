@@ -1,5 +1,5 @@
 PACKAGE = omp-theme
-VERSION = 0.2.1
+VERSION = 0.3.0
 
 ARCHIVE = $(PACKAGE)-$(VERSION)
 BUILDDIR = ./BUILD/$(ARCHIVE)/
@@ -34,7 +34,7 @@ devclean:
 ##############################################################################
 # Build should build the theme into BUILD asif BUILD was the root of the theme
 build: clean prep
-	unzip bootstrap/bootstrap-2.2.1.zip -d $(BUILDDIR)
+	unzip bootstrap/bootstrap-2.3.0.zip -d $(BUILDDIR)
 	cp src/*.php $(BUILDDIR)
 	cp -R src/images $(BUILDDIR)
 	cp -R jquery $(BUILDDIR)
