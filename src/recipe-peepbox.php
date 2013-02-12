@@ -5,7 +5,7 @@
         <a href="<?php the_permalink(); ?>"
            title="<?php printf('Permalink to %s', the_title_attribute( 'echo=0' ) ); ?>"
            rel="bookmark">
-        <?php echo get_the_post_thumbnail($post->ID, 'omp-recipe-peepbox-370-300'); ?>
+        <?php echo get_the_post_thumbnail($post->ID, 'omp-recipe-peepbox'); ?>
         </a>
         <?php endif; ?>
         <h3>
