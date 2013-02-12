@@ -5,7 +5,7 @@
  * thumbnails is provided in the admin interface
  */
 add_theme_support('post-thumbnails');
-add_image_size('omp-recipe-peepbox', 370, 200, true);
+add_image_size('omp-recipe-peepbox-370-300', 370, 300, true);
 add_image_size('omp-recipe-featured-image', 770, 999999);
 add_image_size('omp-recipe-extra-images', 560, 999999);
 
