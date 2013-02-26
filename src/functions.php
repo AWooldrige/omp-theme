@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * Sets appropriate cache control headers
+ */
+function add_cache_control_headers() {
+    if (is_admin() || (strpos(get_option('template'), '-dev') !== false)) {
+        header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate', true);
+        return;
+    }
+    if (is_search() || is_archive()) {
+        header('Cache-Control: max-age=20', true);
+        if($_SERVER['HTTP_X_VARNISH']) {
+            header('X-Varnish-TTL: 3600', true);
+        }
+        return;
+    }
+    header('Cache-Control: max-age=60', true);
+    if($_SERVER['HTTP_X_VARNISH']) {
+        header('X-Varnish-TTL: 432000', true);
+    }
+}
+add_action('wp', 'add_cache_control_headers');
+
+/**
  * Specify that this theme supports thumbnails, otherwise no support for
  * thumbnails is provided in the admin interface
  */
@@ -163,3 +185,34 @@ function add_omp_custom_post_types_to_main_loop($query) {
     return $query;
 }
 add_filter('pre_get_posts', 'add_omp_custom_post_types_to_main_loop');
+
+
+/**
+ * iso8601ToHuman
+ * 
+ * @param mixed $interval
+ * @access public
+ * @return void
+ */
+function ompIso8601ToHuman($interval) {
+    $keys = array(
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second'
+    );
+    $i = new DateInterval($interval);
+
+    $components = array();
+    foreach($keys as $key => $description) {
+        if($i->$key > 0) {
+            $text = $i->$key.' '. $description;
+            if($i->$key > 1) {
+                $text .= 's';
+            }
+            $components[] = $text;
+        }
+    }
+
+    return implode($components, ', ');
+}

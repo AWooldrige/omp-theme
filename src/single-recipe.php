@@ -99,15 +99,15 @@
             <?php
             foreach($post->recipe_data['Meta'] as $key => $val) {
                 switch($key) {
-                    case 'active_time':
+                    case 'prep_time':
                         echo '<li><i class="icon-time"></i> Prep Time: ' .
-                            '<meta itemprop="prepTime" content="PT'.$val.'M">' .
-                            $val . ' mins</li>';
+                            '<meta itemprop="prepTime" content="'.$val.'">' .
+                            ompIso8601ToHuman($val) . '</li>';
                         break;
-                    case 'inactive_time':
+                    case 'cook_time':
                         echo '<li><i class="icon-time"></i> Cook Time: ' .
-                            '<meta itemprop="cookTime" content="PT'.$val.'M">' .
-                            $val . ' mins</li>';
+                            '<meta itemprop="cookTime" content="'.$val.'">' .
+                            ompIso8601ToHuman($val) . '</li>';
                         break;
                     case 'difficulty':
                         echo '<li><i class="icon-signal"></i> Difficulty: ' .
@@ -117,14 +117,13 @@
                         echo '<li><i class="icon-star"></i> Our Rating: ' .
                             $val . '/10</li>';
                         break;
-                    case 'serves':
+                    case 'yield':
                         echo '<li><i class="icon-user"></i> Yield: ' .
                             '<span itemprop="recipeYield">'.$val.'</span></li>';
                         break;
                 }
             }
             ?>
-            <!-- /omp-recipe-meta -->
             </ul>
         <?php
         }

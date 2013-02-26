@@ -1,3 +1,7 @@
+	* Moving LiveFyre javascript right to the bottom of page
+	* Moving Cache-Control setting into the theme rather than puppet
+	* Theme now converts ISO8061 durations into a human string
+
 0.3.0 - 2013-02-12
 	* Update to the Twitter Bootstrap 2.3.0
 	* Temporary change the frontend display of meta titles
