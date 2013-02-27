@@ -3,7 +3,7 @@
 /**
  * Sets appropriate cache control headers
  */
-function add_cache_control_headers() {
+function omp_add_cache_control_headers() {
     if (is_admin() || (strpos(get_option('template'), '-dev') !== false)) {
         header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate', true);
         return;
@@ -20,7 +20,7 @@ function add_cache_control_headers() {
         header('X-Varnish-TTL: 432000', true);
     }
 }
-add_action('wp', 'add_cache_control_headers');
+add_action('wp', 'omp_add_cache_control_headers');
 
 /**
  * Specify that this theme supports thumbnails, otherwise no support for
